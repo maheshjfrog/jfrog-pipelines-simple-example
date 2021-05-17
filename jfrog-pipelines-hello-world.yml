@@ -73,8 +73,6 @@ pipelines:
       - name: p2_s1
         type: Bash
         configuration:
-          integrations:
-            - name: my_art
           inputResources:
             # Sets up step to be triggered when myPropertyBag is updated
             - name: myPropertyBag
@@ -82,6 +80,3 @@ pipelines:
           onExecute:
             # Retrieves the commitSha from input resource
             - echo "CommitSha is $res_myPropertyBag_commitSha"
-            - docker pull labmak.jfrog.info/default-docker-virtual/nginx
-            - docker images
-            - docker rmi labmak.jfrog.info/default-docker-virtual/nginx
